@@ -28,3 +28,17 @@ modules; deploys to GitHub Pages on every push to `main`.
 
 `/grill-with-docs` -> `/to-spec` -> `/to-tickets` -> `/implement` -> `/code-review` -> PR -> merge (which deploys).
 The feature being built is described in `FEATURE.md`. One ticket at a time, on a branch, small commits.
+
+## Agent skills
+
+### Issue tracker
+
+Issues, specs and tickets live in this repo's GitHub Issues (via the `gh` CLI). See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five triage roles use their default label names: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one `GLOSSARY.md` and `docs/adr/` at the repo root, created lazily. See `docs/agents/domain.md`.
