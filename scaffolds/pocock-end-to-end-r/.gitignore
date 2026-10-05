@@ -1,0 +1,7 @@
+/_site/
+/.quarto/
+.Rproj.user/
+.Rhistory
+.RData
+.DS_Store
+.claude/settings.local.json

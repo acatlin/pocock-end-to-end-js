@@ -1,0 +1,28 @@
+---
+title: "Rides dashboard"
+---
+
+Starting point for the agentic SDLC lab. Daily ride counts for three cities,
+July to September 2026, loaded from `data/rides.csv` by tested functions in
+`rides/stats.py`.
+
+```{python}
+from rides.stats import load_rides, total_rides, rides_by_city
+
+df = load_rides()
+print(f"Total rides: {total_rides(df):,}")
+rides_by_city(df)
+```
+
+## Rides by city
+
+```{python}
+#| fig-cap: "Total rides per city, July to September 2026"
+import matplotlib.pyplot as plt
+
+by_city = rides_by_city(df)
+fig, ax = plt.subplots(figsize=(6, 3.5))
+ax.bar(by_city["city"], by_city["rides"], color="#028090")
+ax.set_ylabel("Rides")
+plt.show()
+```

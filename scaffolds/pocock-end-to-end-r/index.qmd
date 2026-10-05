@@ -1,0 +1,25 @@
+---
+title: "Rides dashboard"
+---
+
+Starting point for the agentic SDLC lab. Daily ride counts for three cities,
+July to September 2026, loaded from `data/rides.csv` by tested functions in
+`R/stats.R`.
+
+```{r}
+source("R/stats.R")
+df <- load_rides()
+cat("Total rides:", format(total_rides(df), big.mark = ","), "\n")
+knitr::kable(rides_by_city(df), col.names = c("City", "Rides"))
+```
+
+## Rides by city
+
+```{r}
+#| fig-cap: "Total rides per city, July to September 2026"
+library(ggplot2)
+ggplot(rides_by_city(df), aes(x = city, y = rides)) +
+  geom_col(fill = "#028090") +
+  labs(x = NULL, y = "Rides") +
+  theme_minimal()
+```

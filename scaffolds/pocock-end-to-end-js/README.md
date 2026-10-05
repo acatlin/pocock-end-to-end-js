@@ -1,0 +1,35 @@
+# pocock-end-to-end-js
+
+Template repository for the agentic SDLC lab, JavaScript edition. A small static
+site with tested ES modules, deployed to GitHub Pages by a workflow on every push
+to `main`. No framework, no bundler, no dependencies: Node 20+ is all you need.
+
+## Setup and verify
+
+```bash
+node -v        # v20 or higher
+npm test       # expected: "# pass 3"
+npm start      # serves site/ at http://localhost:8080 (Ctrl+C to stop)
+```
+
+## Layout
+
+| Path | What it is |
+|---|---|
+| `site/index.html`, `site/style.css` | The pages. Paths are relative so the site works under a GitHub Pages subpath. |
+| `site/src/csv.js`, `site/src/stats.js` | ES modules used by the pages and by the tests. Computation lives here. |
+| `site/data/rides.csv` | Sample data: daily ride counts for three cities, July-September 2026. |
+| `tests/*.test.js` | Tests, run by Node's built-in test runner. |
+| `scripts/serve.js` | Zero-dependency local static server. |
+| `.github/workflows/publish.yml` | Runs the tests, then deploys `site/` to GitHub Pages. |
+| `CLAUDE.md` | Context for Claude Code. |
+| `FEATURE.md` | The one-sentence feature you will build in the lab. |
+
+## Deploy
+
+Settings -> Pages -> Build and deployment -> Source: **GitHub Actions**. Then
+every push to `main` publishes the site at `https://<handle>.github.io/<repo>/`.
+
+## License
+
+MIT.

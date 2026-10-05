@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+/_site/
+/.quarto/
+.DS_Store
+.claude/settings.local.json
