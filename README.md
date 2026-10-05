@@ -40,6 +40,20 @@ gh api -X POST repos/<handle>/<repo>/pages -f build_type=workflow
 gh run rerun <run-id> --failed    # find the id with: gh run list
 ```
 
+## Triage labels
+
+The `/triage` skill applies five labels, mapped in `docs/agents/triage-labels.md`.
+A repo created from this template copies the files but not the labels: it starts
+with GitHub's default labels, which include `wontfix` but not the other four.
+Create them once in every repo:
+
+```bash
+gh label create needs-triage    --color FBCA04 --description "Maintainer needs to evaluate this issue"
+gh label create needs-info      --color D876E3 --description "Waiting on reporter for more information"
+gh label create ready-for-agent --color 0E8A16 --description "Fully specified, ready for an AFK agent"
+gh label create ready-for-human --color 1D76DB --description "Requires human implementation"
+```
+
 ## License
 
 MIT.
