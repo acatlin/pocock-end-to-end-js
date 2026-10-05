@@ -30,6 +30,16 @@ npm start      # serves site/ at http://localhost:8080 (Ctrl+C to stop)
 Settings -> Pages -> Build and deployment -> Source: **GitHub Actions**. Then
 every push to `main` publishes the site at `https://<handle>.github.io/<repo>/`.
 
+Pages has to be enabled once in every repo: the setting is not copied when you
+create a repo from this template. Until it is on, the `Publish site` workflow
+passes the tests and then fails at `actions/configure-pages` with "Get Pages site
+failed". You can also enable it from the command line, then re-run the failed run:
+
+```bash
+gh api -X POST repos/<handle>/<repo>/pages -f build_type=workflow
+gh run rerun <run-id> --failed    # find the id with: gh run list
+```
+
 ## License
 
 MIT.
