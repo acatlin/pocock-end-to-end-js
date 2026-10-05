@@ -14,7 +14,8 @@ modules; deploys to GitHub Pages on every push to `main`.
 - `site/src/*.js` - ES modules imported by the pages and by the tests; computation goes here
 - `site/data/rides.csv` - sample data (date, city, rides)
 - `tests/*.test.js` - one test file per module, using `node:test` and `node:assert/strict`
-- `.github/workflows/publish.yml` - runs tests, deploys `site/` to Pages
+- `.github/workflows/publish.yml` - runs tests on pull requests and pushes to `main`; a push to `main` also deploys `site/` to Pages
+- `docs/agents/*.md` - configuration the skills read (see Agent skills below)
 
 ## Conventions
 
