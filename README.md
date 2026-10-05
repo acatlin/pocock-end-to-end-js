@@ -1,13 +1,35 @@
-# Agentic SDLC lab kit (v1.1, 5 October 2026)
+# pocock-end-to-end-js
 
-Materials for a two-hour lab in which graduate data science students run Matt Pocock's
-five-step agentic workflow end to end in Claude Code and finish with a live page on a
-GitHub Pages site of their own.
+Template repository for the agentic SDLC lab, JavaScript edition. A small static
+site with tested ES modules, deployed to GitHub Pages by a workflow on every push
+to `main`. No framework, no bundler, no dependencies: Node 20+ is all you need.
 
-- `docs/Pocock-SDLC-Lab-Build-Brief.docx` — the full brief (also `docs/build-brief.md`)
-- `docs/Pocock-SDLC-Lab-Summary.docx` — one-page summary and the 150-minute version
-- `docs/CLAUDE-CODE-HANDOFF.md` — how to finish the work in Claude Code
-- `scaffolds/` — template repo contents: `pocock-end-to-end-js`, `-python`, `-r`
-- `captures/` — where rehearsal screenshots go
+## Setup and verify
 
-Start with `docs/CLAUDE-CODE-HANDOFF.md`.
+```bash
+node -v        # v20 or higher
+npm test       # expected: "# pass 3"
+npm start      # serves site/ at http://localhost:8080 (Ctrl+C to stop)
+```
+
+## Layout
+
+| Path | What it is |
+|---|---|
+| `site/index.html`, `site/style.css` | The pages. Paths are relative so the site works under a GitHub Pages subpath. |
+| `site/src/csv.js`, `site/src/stats.js` | ES modules used by the pages and by the tests. Computation lives here. |
+| `site/data/rides.csv` | Sample data: daily ride counts for three cities, July-September 2026. |
+| `tests/*.test.js` | Tests, run by Node's built-in test runner. |
+| `scripts/serve.js` | Zero-dependency local static server. |
+| `.github/workflows/publish.yml` | Runs the tests, then deploys `site/` to GitHub Pages. |
+| `CLAUDE.md` | Context for Claude Code. |
+| `FEATURE.md` | The one-sentence feature you will build in the lab. |
+
+## Deploy
+
+Settings -> Pages -> Build and deployment -> Source: **GitHub Actions**. Then
+every push to `main` publishes the site at `https://<handle>.github.io/<repo>/`.
+
+## License
+
+MIT.
